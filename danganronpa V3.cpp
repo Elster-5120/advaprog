@@ -1,5 +1,6 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
+#include<cstdlib>
 using namespace std; 
 
 string names[16] = {
@@ -22,7 +23,7 @@ string fates[16] = {
     "CAUSE OF DEATH: Murdered by Kirumi Tojo, drowned in the library aquarium.",
     "CAUSE OF DEATH: Dragged up a spiked rope and fell to her death.",
     "CAUSE OF DEATH: Murdered by Korekiyo Shinguji with a saw during a ritual.",
-    "CAUSE OF DEATH: Murdered by Korekiyo Shinguji during the Séance ritual.",
+    "CAUSE OF DEATH: Murdered by Korekiyo Shinguji during the Seance ritual.",
     "CAUSE OF DEATH: Executed after being revealed as the mastermind.",
     "CAUSE OF DEATH: Strangled by Gonta Gokuhara in the virtual world.",
     "CAUSE OF DEATH: Executed after being tricked into killing Miu in the virtual world.",
@@ -37,14 +38,17 @@ string fates[16] = {
 
 string choice; 
 int value; 
+char again; 
 
 void showChar(int index) {
+    system("cls"); 
     cout << "\nYou have selected " << names[index] << "."; 
     cout << "\nTalent: " << talents[index]; 
     cout << "\n" << fates[index]; 
 }
 
 bool runGame() {
+    system("cls"); 
     cout << "\nSelect a character to know their talent and cause of death/survival.";
     cout << "\nBEWARE OF SPOILERS!!";
 
@@ -68,6 +72,7 @@ bool runGame() {
 }
 
 bool menu() {
+    system("cls"); 
     cout << "\n\n=== DANGANRONPA V3: KILLING HARMONY ===";
     cout << "\nStart Game? yes or no?";
     cout << "\nPlease enter yes and no in lowercase!";
@@ -75,10 +80,10 @@ bool menu() {
 
     cin >> choice;
 
-    if (choice == "no") {
+    if (choice == "no" || choice == "n") {
         cout << "\nExiting program...";
         return false;
-    } else if (choice == "yes") {
+    } else if (choice == "yes" || choice == "y" || choice == "Y") {
         return runGame();
     } else {
         cout << "\nInvalid initial choice. Please enter 'yes' or 'no'!";
@@ -87,7 +92,14 @@ bool menu() {
 }
 
 int main() {
-    while(menu()) {
-    }
+    system("cls"); 
+    do {
+        menu(); 
+        cout << "\nDo you want to retry the game? (Y/N) \n> "; 
+        cin >> again; 
+    } while (again == 'Y' || again == 'y'); 
+
+    cout << "Program ended. Enjoy~"; 
+    system("pause"); 
     return 0; 
 }
