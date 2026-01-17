@@ -54,7 +54,7 @@ int zodiacEndDay[12] = {
 int month, day; 
 char again; 
 
-// Functions 
+// String Functions 
 string getZodiac(int month, int day) {
 	for (int i = 0; i < 12; i++) {
 		if ((month == zodiacStartMonth[i] && day >= zodiacStartDay[i]) || 
@@ -65,6 +65,7 @@ string getZodiac(int month, int day) {
 	return "Unknown."; 
 }
 
+// Main Menu Function
 void mainMenu(){
 	system("cls"); 
 	cout << "Enter your birth month: "; 
